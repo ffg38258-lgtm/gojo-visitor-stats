@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gojo Satoru</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#080611;color:#fff;font-family:system-ui,Tahoma,Arial;min-height:100vh;display:grid;place-items:center}
+main{width:min(100%,1000px);padding:18px;text-align:center}img{width:100%;height:auto;border-radius:18px;box-shadow:0 0 35px #7d35db66}
+h1{color:#d8b8ff;margin:18px 0 6px}p{color:#d7cbe5;line-height:1.8}
+.notice{position:fixed;inset:0;background:#05030ddd;display:grid;place-items:center;padding:18px}
+.panel{max-width:440px;background:#151020;border:1px solid #8c4bd4;border-radius:18px;padding:24px;text-align:center;box-shadow:0 0 35px #7d35db55}
+button{border:0;border-radius:12px;padding:12px 20px;background:#8c4bd4;color:white;font-size:16px;font-weight:700;cursor:pointer}
+.small{font-size:13px;color:#b8abc8}
+</style></head>
+<body><main>
+<img src="/gojo.png" alt="صورة غوجو ساتورو">
+<h1>五条 悟 — Satoru Gojo</h1><p>Throughout heaven and earth, I alone am the honored one.</p>
+</main>
+<div class="notice" id="notice"><section class="panel">
+<h2>تنبيه الخصوصية</h2>
+<p>إذا وافقت، راح نسجّل وقت الزيارة والمدينة والدولة التقريبية المستنتجة من عنوان الإنترنت (IP)، إضافةً إلى نوع المتصفح بشكل عام. ما نجمع GPS أو عنوان البيت، وما نخزّن عنوان IP نفسه.</p>
+<button id="agree">موافق على الإحصائيات</button>
+<p class="small">إذا ما توافق، تگدر تشوف الصورة بدون تسجيل الزيارة.</p>
+<button id="skip" style="background:#393044">متابعة بدون إحصائيات</button>
+</section></div>
+<script>
+const notice=document.getElementById('notice');
+document.getElementById('agree').onclick=async()=>{try{await fetch('/api/visit',{method:'POST'});}catch(e){}notice.remove();};
+document.getElementById('skip').onclick=()=>notice.remove();
+</script></body></html>
